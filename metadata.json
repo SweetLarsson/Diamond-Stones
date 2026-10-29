@@ -1,0 +1,6 @@
+{
+  "name": "Diamond Stones — Humanitarian Support & Empowerment Platform",
+  "description": "Diamond Stones is a Nigerian nonprofit organization founded by Irene James-Nnaji, operating DS-WIDI and DISH-SF to support women, vulnerable individuals, families, and communities through humanitarian relief and empowerment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

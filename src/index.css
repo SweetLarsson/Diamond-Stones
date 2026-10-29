@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #243247;
+    background-color: #F7FAFC;
+    overflow-x: hidden;
+  }
+}
+
+/* Completely remove scrollbars across all elements and browsers */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari and Opera */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Diamond Stones Brand Utilities */
+.bg-gradient-emerald-navy {
+  background: linear-gradient(135deg, #0B6B45 0%, #10A66A 50%, #102C57 100%);
+}
+
+.bg-gradient-ds {
+  background: linear-gradient(135deg, #0B6B45 0%, #2563EB 100%);
+}
+
+.bg-gradient-ds-reverse {
+  background: linear-gradient(135deg, #2563EB 0%, #10A66A 100%);
+}
+
+.text-gradient-ds {
+  background: linear-gradient(135deg, #0B6B45 0%, #2563EB 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
