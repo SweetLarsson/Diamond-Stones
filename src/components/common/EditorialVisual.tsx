@@ -210,7 +210,7 @@ export const EditorialVisual: React.FC<EditorialVisualProps> = ({
 
       {/* Bottom Trust Seal */}
       <div className="relative z-10 flex items-center justify-between pt-2 border-t border-white/20 text-[10px] sm:text-[11px] text-white/90 font-medium">
-        <span className="tracking-wide drop-shadow-sm">Rivers State, Nigeria · Est. 2013</span>
+        <span className="tracking-wide drop-shadow-sm">Rivers State, Nigeria</span>
       </div>
     </div>
   );
