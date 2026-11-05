@@ -6,7 +6,7 @@ export interface PhotoAsset {
   tag: string;
 }
 
-export const BRAND_LOGO_URL = 'https://i.imgur.com/iuJiEuD.jpeg';
+export const BRAND_LOGO_URL = 'https://i.imgur.com/hSxcMA9.png';
 
 export const DIAMOND_STONES_PHOTOS = {
   hero: {
@@ -86,6 +86,27 @@ export const DIAMOND_STONES_PHOTOS = {
     category: 'Disaster Relief',
     tag: 'DISH-SF (Est. 2025)',
   },
+  communityFieldMobilization: {
+    url: 'https://i.imgur.com/jKXQHdr.png',
+    title: 'Community Field Mobilization & Direct Action',
+    caption: 'Coordinated volunteer contingents active in frontline field logistics and grassroots support.',
+    category: 'Humanitarian Outreach',
+    tag: 'Field Operations',
+  },
+  reliefAidDistribution: {
+    url: 'https://i.imgur.com/vJ8N9Rf.png',
+    title: 'Relief Aid & Food Package Distribution',
+    caption: 'Direct delivery of essential sustenance packages and relief materials to vulnerable households.',
+    category: 'Food Relief',
+    tag: 'Community Distribution',
+  },
+  grassrootsEmpowermentOutreach: {
+    url: 'https://i.imgur.com/wuUngco.png',
+    title: 'Grassroots Community Engagement & Welfare',
+    caption: 'Empowering local communities through active presence, compassionate listening, and structured aid.',
+    category: 'Women in Distress',
+    tag: 'Grassroots Action',
+  },
 };
 
 export const ALL_PHOTOS_GALLERY: PhotoAsset[] = [
@@ -99,4 +120,7 @@ export const ALL_PHOTOS_GALLERY: PhotoAsset[] = [
   DIAMOND_STONES_PHOTOS.founderStory,
   DIAMOND_STONES_PHOTOS.dstepVocational,
   DIAMOND_STONES_PHOTOS.floodRelief,
+  DIAMOND_STONES_PHOTOS.communityFieldMobilization,
+  DIAMOND_STONES_PHOTOS.reliefAidDistribution,
+  DIAMOND_STONES_PHOTOS.grassrootsEmpowermentOutreach,
 ];

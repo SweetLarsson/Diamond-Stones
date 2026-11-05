@@ -1,23 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export const BRAND_LOGO_URL = 'https://i.imgur.com/iuJiEuD.jpeg';
+export const BRAND_LOGO_URL = 'https://i.imgur.com/hSxcMA9.png';
 
 interface BrandLogoProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   showSubtitle?: boolean;
   light?: boolean;
-  subtitle?: string;
 }
+
+const SUBTITLES = [
+  'Humanitarian Support Foundation',
+  'Women in Distress Initiative',
+];
 
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   className = '',
   size = 'md',
   showSubtitle = true,
   light = false,
-  subtitle = 'Humanitarian Support Foundation',
 }) => {
   const [imgError, setImgError] = useState(false);
+  const [subtitleIndex, setSubtitleIndex] = useState(0);
+
+  // Transitions with a fade effect between the two subtitles every 5 seconds
+  useEffect(() => {
+    if (!showSubtitle) return;
+    const interval = setInterval(() => {
+      setSubtitleIndex((prev) => (prev + 1) % SUBTITLES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [showSubtitle]);
 
   const containerSizes = {
     sm: 'w-10 h-10',
@@ -29,12 +42,6 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
     sm: 'text-sm sm:text-base font-bold',
     md: 'text-base sm:text-lg font-extrabold',
     lg: 'text-xl sm:text-2xl font-extrabold',
-  };
-
-  const subtitleSizes = {
-    sm: 'text-[9.5px]',
-    md: 'text-[10.5px]',
-    lg: 'text-xs',
   };
 
   return (
@@ -62,7 +69,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         )}
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col min-w-0">
         <span
           className={`tracking-tight leading-tight uppercase font-['Montserrat',sans-serif] ${titleSizes[size]} ${
             light ? 'text-white' : 'text-[#102C57]'
@@ -71,21 +78,36 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
           Diamond Stones
         </span>
         {showSubtitle && (
-          <span
-            style={{
-              fontSize: '7px',
-              fontWeight: 'bold',
-              lineHeight: '5px',
-              fontFamily: 'Montserrat, sans-serif',
-              textDecorationLine: 'none',
-              marginTop: '0px',
-            }}
-            className={`uppercase tracking-wider ${
-              light ? 'text-[#A7F3D0]' : 'text-[#0B6B45]'
-            }`}
-          >
-            {subtitle}
-          </span>
+          <div className="relative h-[13px] w-[215px] sm:w-[230px] overflow-visible mt-0.5">
+            {SUBTITLES.map((text, idx) => {
+              const isActive = idx === subtitleIndex;
+              return (
+                <span
+                  key={text}
+                  style={{
+                    fontSize: size === 'sm' ? '6.8px' : '7.6px',
+                    fontWeight: 700,
+                    lineHeight: '13px',
+                    fontFamily: 'Montserrat, sans-serif',
+                    letterSpacing: '0.025em',
+                  }}
+                  className={`absolute left-0 top-0 whitespace-nowrap uppercase pr-2 transition-opacity duration-700 ease-in-out ${
+                    isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                  } ${
+                    light
+                      ? idx === 0
+                        ? 'text-[#A7F3D0]'
+                        : 'text-[#93C5FD]'
+                      : idx === 0
+                      ? 'text-[#0B6B45]'
+                      : 'text-[#2563EB]'
+                  }`}
+                >
+                  {text}
+                </span>
+              );
+            })}
+          </div>
         )}
       </div>
     </div>

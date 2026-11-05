@@ -54,7 +54,14 @@ export const FacilitatorsPage: React.FC<FacilitatorsPageProps> = ({
       } else if (activeFilter === 'zonal') {
         if (!facilitator.role.toLowerCase().includes('zonal')) return false;
       } else if (activeFilter === 'national') {
-        if (!facilitator.role.toLowerCase().includes('national') && !facilitator.role.toLowerCase().includes('secretary') && !facilitator.role.toLowerCase().includes('pro')) return false;
+        const roleLower = facilitator.role.toLowerCase();
+        if (
+          !roleLower.includes('national') &&
+          !roleLower.includes('secretary') &&
+          !roleLower.includes('pro') &&
+          !roleLower.includes('project coordinator')
+        )
+          return false;
       } else if (activeFilter === 'ghana') {
         if (!facilitator.zoneOrChapter.toLowerCase().includes('ghana')) return false;
       }
@@ -143,7 +150,7 @@ export const FacilitatorsPage: React.FC<FacilitatorsPageProps> = ({
                 { id: 'all', label: 'All Facilitators' },
                 { id: 'state', label: 'State Coordinators' },
                 { id: 'zonal', label: 'Zonal Leadership' },
-                { id: 'national', label: 'National Secretariat & PRO' },
+                { id: 'national', label: 'National & Project Directorate' },
                 { id: 'ghana', label: 'Ghana International' },
               ].map((btn) => (
                 <button
